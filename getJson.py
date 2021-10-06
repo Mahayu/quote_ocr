@@ -28,6 +28,11 @@ ocr = PaddleOCR(
 pics = []
 badPicPath = []
 givenId = 1
+
+try:
+    os.remove(picFolder + "put_imgs_here")
+except: OSError
+
 for paths in allPicPath:
     paths = 'imgs/' + paths
     result = ocr.ocr(paths, cls=True)
